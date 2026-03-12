@@ -1,0 +1,18 @@
+---
+title: "Scalable Class Imbalance Handling in Big Data"
+excerpt: "Distributed PySpark pipeline with SMOTE variants and MLflow experiment tracking for minority-class recall on 100K+ skewed records."
+bannerLight: "../assets/betternews-light.png"
+bannerDark: "../assets/betternews-dark.png"
+date: 2025-05-01
+published: true
+url: "https://github.com/abuqaiselegant/BigData"
+tech: ["PySpark", "SMOTE", "MLflow", "Docker", "GCP Cloud Run"]
+featured: 3
+github: "https://github.com/abuqaiselegant/BigData"
+category: "backend"
+---
+Built a distributed Spark pipeline using SMOTE variants and structured resampling to improve minority-class recall on 100K+ highly skewed records.
+
+Optimised preprocessing and synthetic sample generation with partition tuning, caching, and broadcast joins, reducing training time by ~30% on 100K+ records. Designed a reproducible experiment framework with MLflow, comparing imbalance-mitigation techniques across 25+ tracked runs.
+
+Deployed the model as a Dockerised service on Cloud Run, achieving ~1.2s inference latency under concurrent load.
