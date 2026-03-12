@@ -3,7 +3,7 @@
   "configVersion": 0,
   "workspaces": {
     "": {
-      "name": "sachi.dev",
+      "name": "abuqais.dev",
       "dependencies": {
         "@ai-sdk/google": "^3.0.29",
         "@ai-sdk/react": "^3.0.92",
