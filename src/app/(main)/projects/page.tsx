@@ -7,10 +7,10 @@ import { ArrowLeft } from "lucide-react";
 
 export const metadata: Metadata = {
   title: `Projects | ${siteConfig.name}`,
-  description: "Projects I've built.",
+  description: "Production-grade ML systems, fullstack apps, and experiments—from pipelines to agents.",
   openGraph: {
     title: `Projects | ${siteConfig.name}`,
-    description: "Projects I've built.",
+    description: "Production-grade ML systems, fullstack apps, and experiments—from pipelines to agents.",
     url: `${siteConfig.origin}/projects`,
   },
 };

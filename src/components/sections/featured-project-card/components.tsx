@@ -21,6 +21,43 @@ import { ProjectContext, useChat as useChatHook } from "./use-chat";
 
 const springTransition = { type: "spring", bounce: 0, duration: 0.3 } as const;
 
+/** Aesthetic banner overlay per project — subtle gradient tint */
+const BANNER_OVERLAYS: Record<string, { light: string; dark: string }> = {
+  "taskops": {
+    light: "linear-gradient(135deg, rgba(251,191,36,0.25) 0%, transparent 50%)",
+    dark: "linear-gradient(135deg, rgba(245,158,11,0.2) 0%, transparent 50%)",
+  },
+  "ml-tracking-app": {
+    light: "linear-gradient(135deg, rgba(59,130,246,0.22) 0%, transparent 50%)",
+    dark: "linear-gradient(135deg, rgba(96,165,250,0.18) 0%, transparent 50%)",
+  },
+  "ai-trading-stock-prediction": {
+    light: "linear-gradient(135deg, rgba(34,197,94,0.24) 0%, transparent 50%)",
+    dark: "linear-gradient(135deg, rgba(74,222,128,0.18) 0%, transparent 50%)",
+  },
+  "agentic-ai-financial-insights": {
+    light: "linear-gradient(135deg, rgba(139,92,246,0.24) 0%, transparent 50%)",
+    dark: "linear-gradient(135deg, rgba(167,139,250,0.2) 0%, transparent 50%)",
+  },
+  "llm-sentiment-analysis": {
+    light: "linear-gradient(135deg, rgba(236,72,153,0.22) 0%, transparent 50%)",
+    dark: "linear-gradient(135deg, rgba(244,114,182,0.18) 0%, transparent 50%)",
+  },
+  "giants-from-dust": {
+    light: "linear-gradient(135deg, rgba(234,88,12,0.22) 0%, transparent 50%)",
+    dark: "linear-gradient(135deg, rgba(251,146,60,0.18) 0%, transparent 50%)",
+  },
+  "scalable-class-imbalance": {
+    light: "linear-gradient(135deg, rgba(20,184,166,0.24) 0%, transparent 50%)",
+    dark: "linear-gradient(135deg, rgba(45,212,191,0.18) 0%, transparent 50%)",
+  },
+  "flex-living-reviews": {
+    light: "linear-gradient(135deg, rgba(14,165,233,0.22) 0%, transparent 50%)",
+    dark: "linear-gradient(135deg, rgba(56,189,248,0.18) 0%, transparent 50%)",
+  },
+};
+const DEFAULT_OVERLAY = { light: "transparent", dark: "transparent" };
+
 interface ProviderProps {
   project: Projects;
   isActive: boolean;
@@ -221,7 +258,8 @@ function Content({ children }: { children: React.ReactNode }) {
 
 function Banner({ children }: { children?: React.ReactNode }) {
   const { state } = useProjectCard();
-  const { bannerLight, bannerDark } = state.project;
+  const { bannerLight, bannerDark, slugAsParams } = state.project;
+  const overlay = BANNER_OVERLAYS[slugAsParams] ?? DEFAULT_OVERLAY;
 
   return (
     <div
@@ -246,6 +284,16 @@ function Banner({ children }: { children?: React.ReactNode }) {
         width={1500}
         height={500}
         className="object-cover object-top w-full h-full hidden dark:block"
+      />
+      <div
+        className="absolute inset-0 pointer-events-none dark:hidden"
+        style={{ background: overlay.light }}
+        aria-hidden
+      />
+      <div
+        className="absolute inset-0 pointer-events-none hidden dark:block"
+        style={{ background: overlay.dark }}
+        aria-hidden
       />
       {children}
     </div>

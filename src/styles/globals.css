@@ -6,7 +6,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-outfit);
   --font-mono: var(--font-geist-mono);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -44,9 +44,9 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-outfit);
   --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-inter);
+  --font-heading: var(--font-outfit);
 }
 
 :root {
@@ -323,6 +323,59 @@ body {
 @utility no-scrollbar {
   scrollbar-width: 0px;
   -ms-overflow-style: none;
+}
+
+/* Stardust page – fucky animations */
+@keyframes margin-glitch {
+  0%, 90%, 100% { transform: translate(0) skew(0deg); opacity: 1; }
+  92% { transform: translate(-2px, 1px) skew(-0.5deg); opacity: 0.9; }
+  94% { transform: translate(2px, -1px) skew(0.5deg); opacity: 0.9; }
+  96% { transform: translate(-1px, 2px) skew(-0.3deg); opacity: 0.95; }
+  98% { transform: translate(1px, -2px) skew(0.3deg); opacity: 0.95; }
+}
+
+@keyframes margin-wobble {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-1.5deg); }
+  75% { transform: rotate(1.5deg); }
+}
+
+@keyframes margin-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(2%, -3%) scale(1.02); }
+}
+
+@keyframes margin-in {
+  0% { opacity: 0; transform: translateY(8px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes margin-shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-3px); }
+  40% { transform: translateX(3px); }
+  60% { transform: translateX(-2px); }
+  80% { transform: translateX(2px); }
+}
+
+.margin-glitch {
+  animation: margin-glitch 4s ease-in-out infinite;
+}
+
+.margin-wobble:hover {
+  animation: margin-wobble 0.4s ease-in-out;
+}
+
+.margin-float {
+  animation: margin-float 8s ease-in-out infinite;
+}
+
+.margin-in {
+  animation: margin-in 0.35s ease-out forwards;
+}
+
+.margin-shake {
+  animation: margin-shake 0.5s ease-in-out;
 }
 
 .no-scrollbar::-webkit-scrollbar {

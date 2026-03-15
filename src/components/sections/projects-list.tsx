@@ -98,7 +98,12 @@ export function ProjectsList({ projects }: ProjectsListProps) {
   return (
     <>
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mt-6">
-        <h1 className="font-semibold text-xl md:text-2xl">Projects</h1>
+        <div>
+          <h1 className="font-semibold text-xl md:text-2xl">Projects</h1>
+          <p className="text-muted-foreground text-sm mt-0.5">
+            Production-grade ML systems, fullstack apps, and experiments—from pipelines to agents.
+          </p>
+        </div>
         <SearchFilterGroup
           search={search}
           onSearchChange={setSearch}

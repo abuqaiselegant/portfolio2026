@@ -1,5 +1,5 @@
 import { siteConfig } from "@/config/site.config";
-import { FileText, Linkedin, BookOpen } from "lucide-react";
+import { FileText, Linkedin, BookOpen, Sparkles } from "lucide-react";
 import { Icons } from "@/components/icons";
 import Link from "next/link";
 
@@ -42,6 +42,13 @@ export function Socials() {
       >
         <BookOpen className="h-4 w-4" strokeWidth={1} />
       </a>
+      <Link
+        href="/stardust"
+        aria-label="Stardust"
+        className="flex items-center justify-center size-7.5 hover:text-primary transition-colors p-1.5 hover:bg-secondary rounded-md duration-150"
+      >
+        <Sparkles className="h-4 w-4" strokeWidth={1} />
+      </Link>
       <Link
         href="/resume"
         target="_blank"

@@ -28,6 +28,9 @@ export function Projects() {
 
   return (
     <div className="text-sm">
+      <p className="text-muted-foreground text-sm mb-2">
+        Production-grade ML systems, fullstack apps, and experiments—from pipelines to agents.
+      </p>
       <div className="flex items-center justify-between">
         <p className="font-semibold text-lg">{sort === "featured" ? "Featured projects" : "Latest projects"}</p>
         <div className="flex items-center gap-0.5 p-0.5 bg-muted rounded-md relative">
